@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "plugins": ["@typescript-eslint", "prettier", "import", "jasmine"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jasmine/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off"
+  }
+}
