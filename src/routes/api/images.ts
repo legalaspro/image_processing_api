@@ -37,6 +37,10 @@ images.get('/', checkImageParams, async (req: ImageParamsRequest, res) => {
       .resize(width, height)
       .toBuffer();
 
+    // Create the thumb directory if it doesn't exist
+    const thumbDir = path.join(ROOT_DIR, 'assets', 'thumb');
+    await fsPromises.mkdir(thumbDir, { recursive: true });
+
     await fsPromises.writeFile(thumbnailPath, resizedImage);
     console.log(`Processed thumbnail ${thumbnailName}`);
     res.set('Content-Disposition', 'inline');
